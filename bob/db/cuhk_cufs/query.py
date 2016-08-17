@@ -25,11 +25,11 @@ from .models import PROTOCOLS, GROUPS, PURPOSES
 
 from .driver import Interface
 
-import bob.db.verification.utils
+import bob.db.base
 
 SQLITE_FILE = Interface().files()[0]
 
-class Database(bob.db.verification.utils.SQLiteDatabase, bob.db.verification.utils.ZTDatabase):
+class Database(bob.db.base.SQLiteDatabase):
 
   """Wrapper class for the CUHK-CUFS database for Heterogeneous face recognition recognition (http://mmlab.ie.cuhk_cufs.edu.hk/archive/facesketch.html).
 
@@ -37,8 +37,9 @@ class Database(bob.db.verification.utils.SQLiteDatabase, bob.db.verification.uti
 
   def __init__(self, original_directory = None, original_extension = None, arface_directory="", xm2vts_directory=""):
     # call base class constructors to open a session to the database
-    bob.db.verification.utils.SQLiteDatabase.__init__(self, SQLITE_FILE, File)
-    bob.db.verification.utils.ZTDatabase.__init__(self, original_directory=original_directory, original_extension=original_extension)
+    super(Database, self).__init__(SQLITE_FILE, File)
+    self.original_directory = original_directory
+    self.original_extension = original_extension
 
     self.arface_directory = arface_directory
     self.xm2vts_directory = xm2vts_directory
@@ -92,7 +93,7 @@ class Database(bob.db.verification.utils.SQLiteDatabase, bob.db.verification.uti
   def annotations(self, file, annotation_type="eyes_center"):
     """This function returns the annotations for the given file id as a dictionary.
     Keyword parameters:
-    file : :py:class:`bob.db.verification.utils.File` or one of its derivatives
+    file : :py:class:`bob.db.base.File` or one of its derivatives
       The File object you want to retrieve the annotations for,
     Return value:
       A dictionary of annotations, for face images usually something like {'leye':(le_y,le_x), 'reye':(re_y,re_x), ...},

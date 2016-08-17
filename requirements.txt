@@ -1,5 +1,8 @@
 setuptools
 six
+bob.blitz
+bob.core
+bob.io.base
 bob.db.base
 bob.db.xm2vts
 bob.db.arface

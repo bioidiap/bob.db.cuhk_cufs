@@ -31,7 +31,7 @@ from bob.db.base.sqlalchemy_migration import Enum, relationship
 from sqlalchemy.orm import backref
 from sqlalchemy.ext.declarative import declarative_base
 
-import bob.db.verification.utils
+import bob.db.base
 
 import os
 
@@ -133,7 +133,7 @@ class Annotation(Base):
 
 
 
-class File(Base, bob.db.verification.utils.File):
+class File(Base, bob.db.base.File):
   """
   Information about the files of the CUHK-CUFS database.
 
@@ -155,8 +155,7 @@ class File(Base, bob.db.verification.utils.File):
 
   def __init__(self, id, image_name, client_id, modality):
     # call base class constructor
-    bob.db.verification.utils.File.__init__(self, file_id = id, client_id = client_id, path = image_name)
-    #bob.db.verification.utils.File.__init__(self, client_id = client_id, path = image_name)
+    bob.db.base.File.__init__(self, file_id = id, client_id = client_id, path = image_name)
     self.modality = modality
 
   def annotations(self, annotation_type="eyes_center"):
