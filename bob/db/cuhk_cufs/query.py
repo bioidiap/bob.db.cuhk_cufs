@@ -55,11 +55,13 @@ class Database(bob.db.base.SQLiteDatabase):
   def original_file_name(self, file, check_existence = True):
     """This function returns the original file name for the given File object.
     Keyword parameters:
+    
     file : :py:class:`File` or a derivative
       The File objects for which the file name should be retrieved
     check_existence : bool
       Check if the original file exists? IGNORED: ALWAYS CHECK
-    Return value : str
+
+    Return value:
       The original file name for the given File object
     """
 
@@ -93,8 +95,10 @@ class Database(bob.db.base.SQLiteDatabase):
   def annotations(self, file, annotation_type="eyes_center"):
     """This function returns the annotations for the given file id as a dictionary.
     Keyword parameters:
+
     file : :py:class:`bob.db.base.File` or one of its derivatives
       The File object you want to retrieve the annotations for,
+
     Return value:
       A dictionary of annotations, for face images usually something like {'leye':(le_y,le_x), 'reye':(re_y,re_x), ...},
       or None if there are no annotations for the given file ID (which is the case in this base class implementation).
