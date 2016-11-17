@@ -31,7 +31,7 @@ setup(
     name='bob.db.cuhk_cufs',
     version=version,
     description='CUHK Face Sketch Database (CUFS)',
-    url='',
+    url='https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs',
     license='BSD',
     keywords = "",
     author='Tiago de Freitas Pereira',
