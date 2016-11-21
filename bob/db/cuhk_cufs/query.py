@@ -237,5 +237,3 @@ class Database(bob.db.base.SQLiteDatabase):
     """This function returns the ids of the T-Norm models of the given groups for the given protocol."""
     return ["t_"+str(c.id) for c in self.tclients(protocol=protocol)]
 
-
-
