@@ -155,7 +155,8 @@ class File(Base, bob.db.base.File):
 
   def __init__(self, id, image_name, client_id, modality):
     # call base class constructor
-    bob.db.base.File.__init__(self, file_id = id, client_id = client_id, path = image_name)
+    bob.db.base.File.__init__(self, file_id = id, path = image_name)
+    self.client_id = client_id
     self.modality = modality
 
   def annotations(self, annotation_type="eyes_center"):
