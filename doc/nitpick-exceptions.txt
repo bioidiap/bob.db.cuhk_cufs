@@ -1,2 +1,6 @@
 py:class sqlalchemy.ext.declarative.api.Base
+
+# This is not documented as py:exc in Python 2.7 - works in Python 3.x
+py:obj list
+py:class list
 py:exc ValueError
