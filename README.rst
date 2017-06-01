@@ -5,10 +5,10 @@
    :target: http://pythonhosted.org/bob.db.cuhk_cufs/index.html
 .. image:: http://img.shields.io/badge/docs-latest-orange.svg
    :target: https://www.idiap.ch/software/bob/docs/latest/bob/bob.db.cuhk_cufs/master/index.html
-.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/v2.1.3/build.svg
-   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/v2.1.3
-.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/v2.1.3/coverage.svg
-   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/v2.1.3
+.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/build.svg
+   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/master
+.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/coverage.svg
+   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/master
 .. image:: https://img.shields.io/badge/gitlab-project-0000c0.svg
    :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs
 .. image:: http://img.shields.io/pypi/v/bob.db.cuhk_cufs.svg
