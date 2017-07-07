@@ -2,9 +2,9 @@
 .. Wed 17 Aug 16:25:52 CEST 2016
 
 .. image:: http://img.shields.io/badge/docs-stable-yellow.svg
-   :target: http://pythonhosted.org/bob.db.cuhk_cufs/index.html
+   :target: https://www.idiap.ch/software/bob/docs/bob/bob.db.cuhk_cufs/stable/index.html
 .. image:: http://img.shields.io/badge/docs-latest-orange.svg
-   :target: https://www.idiap.ch/software/bob/docs/latest/bob/bob.db.cuhk_cufs/master/index.html
+   :target: https://www.idiap.ch/software/bob/docs/bob/bob.db.cuhk_cufs/master/index.html
 .. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/build.svg
    :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/master
 .. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/coverage.svg
@@ -12,8 +12,6 @@
 .. image:: https://img.shields.io/badge/gitlab-project-0000c0.svg
    :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs
 .. image:: http://img.shields.io/pypi/v/bob.db.cuhk_cufs.svg
-   :target: https://pypi.python.org/pypi/bob.db.cuhk_cufs
-.. image:: http://img.shields.io/pypi/dm/bob.db.cuhk_cufs.svg
    :target: https://pypi.python.org/pypi/bob.db.cuhk_cufs
 .. image:: https://img.shields.io/badge/original-data--files-a000a0.png
    :target: http://mmlab.ie.cuhk.edu.hk/archive/facesketch.html
@@ -24,8 +22,8 @@ CUHK Face Sketch Database (CUFS)
 
 This package is part of the signal-processing and machine learning toolbox
 Bob_.
-This package contains the access API and descriptions for the `CUHK Face Sketch Database (CUFS) <http://mmlab.ie.cuhk.edu.hk/archive/facesketch.html>`. 
-The actual raw data for the database should be downloaded from the original URL. 
+This package contains the access API and descriptions for the `CUHK Face Sketch Database (CUFS) <http://mmlab.ie.cuhk.edu.hk/archive/facesketch.html>`.
+The actual raw data for the database should be downloaded from the original URL.
 This package only contains the Bob accessor methods to use the DB directly from python, with the original protocol of the database.
 
 CUHK Face Sketch database (CUFS) is for research on face sketch synthesis and face sketch recognition.
@@ -37,7 +35,7 @@ For each face, there is a sketch drawn by an artist based on a photo taken in a 
 Installation
 ------------
 
-Complete Bob's `installation`_ instructions. Then, to install this pacakge,
+Complete Bob's `installation`_ instructions. Then, to install this package,
 run::
 
   $ conda install bob.db.cuhk_cufs
