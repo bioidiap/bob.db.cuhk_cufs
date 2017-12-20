@@ -170,7 +170,10 @@ def test05_verification_cuhk_protocols():
       assert len(bob.db.cuhk_cufs.Database().objects(protocol=p, groups="eval")) == eval
       assert len(bob.db.cuhk_cufs.Database().objects(protocol=p, groups="eval", purposes="enroll")) == eval_enroll
       assert len(bob.db.cuhk_cufs.Database().objects(protocol=p, groups="eval", purposes="probe"))  == eval_probe
-
+      
+      # Checking the modalities
+      assert len(bob.db.cuhk_cufs.Database().objects(protocol=p, groups="world", modality=["photo"])) == world//2
+      assert len(bob.db.cuhk_cufs.Database().objects(protocol=p, groups="world", modality=["sketch"])) == world//2
 
 
 def test06_search_clients_protocols():

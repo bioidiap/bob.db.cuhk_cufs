@@ -45,6 +45,7 @@ class Database(bob.db.base.SQLiteDatabase):
         self.arface_directory = arface_directory
         self.xm2vts_directory = xm2vts_directory
 
+
     @property
     def modality_separator(self):
         return "photo"

@@ -3,24 +3,15 @@
 # Tiago de Freitas Pereira <tiago.pereira@idiap.ch>
 # Thu 12 Nov 2015 16:35:08 CET 
 #
-# Copyright (C) 2011-2013 Idiap Research Institute, Martigny, Switzerland
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, version 3 of the License.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the ipyplotied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
 
-"""This script evaluates the given score files and computes EER, HTER.
-It also is able to plot CMC and ROC curves."""
+"""
+
+This script computes evaluation and squashes results along splits
+It also is able to plot CMC and ROC curves.
+"""
+
 
 import bob.measure
 
@@ -52,20 +43,17 @@ def command_line_arguments(command_line_parameters):
       formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
   parser.add_argument('-d', '--dev-files', required=True, nargs='+', help = "A list of score files of the development set.")
+  parser.add_argument('-c', '--colors', nargs='+', help = "A list of line colors for the ROC, CMC and DET plots.")  
+  parser.add_argument('-l', '--legends', nargs='+', help = "A list of legend strings used for ROC, CMC and DET plots; THE NUMBER OF PLOTS SHOULD BE MULTIPLE OF THE NUMBER OF LEGGENDS. IN THAT WAY, EACH SEGMENT WILL BE AVERAGED")
+
+  parser.add_argument('-i', '--linestyle', nargs='+', help = "A list of line styles for the ROC, CMC and DET plots; THE NUMBER OF PLOTS SHOULD BE MULTIPLE OF THE NUMBER OF LEGGENDS. IN THAT WAY, EACH SEGMENT WILL BE AVERAGED")  
+
   
   parser.add_argument('-n', '--report-name', default="report", help = "The name of the report")
   
   parser.add_argument('-r', '--roc', action='store_true', default=False, help="Add ROC in the report")
   parser.add_argument('-e', '--det', action='store_true', default=False, help="Add DET in the report")
-
   parser.add_argument('--rr', '--recognition-rate', action='store_true', default=False, help="Compute the recognition rate (Rank 1)")
-
-
-  parser.add_argument('-l', '--legends', nargs='+', help = "A list of legend strings used for ROC, CMC and DET plots; THE NUMBER OF PLOTS SHOULD BE MULTIPLE OF THE NUMBER OF LEGGENDS. IN THAT WAY, EACH SEGMENT WILL BE AVERAGED")
-
-  parser.add_argument('-i', '--linestyle', nargs='+', help = "A list of line styles for the ROC, CMC and DET plots; THE NUMBER OF PLOTS SHOULD BE MULTIPLE OF THE NUMBER OF LEGGENDS. IN THAT WAY, EACH SEGMENT WILL BE AVERAGED")  
-  
-  parser.add_argument('-c', '--colors', nargs='+', help = "A list of line colors for the ROC, CMC and DET plots.")  
 
   
   parser.add_argument('-t', '--title', type=str, default='', help = "Title of the plot")
@@ -84,7 +72,6 @@ def command_line_arguments(command_line_parameters):
   
   # set verbosity level
   bob.core.log.set_verbosity_level(logger, args.verbose)
-
 
   # some sanity checks:
   # update legends when they are not specified on command line
@@ -351,8 +338,4 @@ def main(command_line_parameters=None):
         raise RuntimeError("During plotting of ROC curves, the following exception occured:\n%s\nUsually this happens when the label contains characters that LaTeX cannot parse." % e)
 
   pdf.close()
-  
-  
-  
-
 
