@@ -12,6 +12,8 @@ import os
 import numpy
 numpy.random.seed(10)
 import bob.db.arface
+import pkg_resources
+
 
 def read_annotations(file_name):
   """
@@ -41,11 +43,11 @@ class ARFACEWrapper():
   """
   Utility functions to deal with the AR Face database.
   """
+  os.path.join( pkg_resources.resource_filename(__name__, 'data'), 'model.ckp')
 
   def __init__(self, 
-      photo_file_name=os.path.join(os.path.curdir,"bob","db","cuhk_cufs","data","AR_file_names_of_photos.txt"),
-      sketch_file_name=os.path.join(os.path.curdir,"bob","db","cuhk_cufs","data","AR_file_names_of_sketches.txt")
-   ):
+      photo_file_name=os.path.join( pkg_resources.resource_filename(__name__, 'data'), "AR_file_names_of_photos.txt"),
+      sketch_file_name=os.path.join( pkg_resources.resource_filename(__name__, 'data'), "AR_file_names_of_sketches.txt")):
 
     self.m_photo_file_name  = photo_file_name
     self.m_sketch_file_name = sketch_file_name
@@ -164,8 +166,8 @@ class XM2VTSWrapper():
   """
 
   def __init__(self, 
-      photo_file_name=os.path.join(os.path.curdir,"bob","db","cuhk_cufs","data","XM2VTS_file_names_of_photos.txt"),
-      sketch_file_name=os.path.join(os.path.curdir,"bob","db","cuhk_cufs","data","XM2VTS_file_names_of_sketches.txt")
+      photo_file_name=os.path.join(pkg_resources.resource_filename(__name__, 'data'), "XM2VTS_file_names_of_photos.txt"),
+      sketch_file_name=os.path.join(pkg_resources.resource_filename(__name__, 'data'), "XM2VTS_file_names_of_sketches.txt")
    ):
 
     self.m_photo_file_name  = photo_file_name
@@ -295,7 +297,7 @@ class CUHKWrapper():
   """
 
   def __init__(self, 
-      file_name=os.path.join(os.path.curdir,"bob","db","cuhk_cufs","data","all-cuhk.txt"),      
+      file_name=os.path.join(pkg_resources.resource_filename(__name__, 'data'), "all-cuhk.txt")
    ):
 
     self.m_file_name  = file_name
