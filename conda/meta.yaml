@@ -1,0 +1,57 @@
+{% set name = 'bob.db.cuhk_cufs' %}
+{% set project_dir = environ.get('RECIPE_DIR') + '/..' %}
+
+package:
+  name: {{ name }}
+  version: {{ environ.get('BOB_PACKAGE_VERSION', '0.0.1') }}
+
+build:
+  entry_points:
+    - evaluate_cufs.py = bob.db.cuhk_cufs.scripts.evaluate_cufs:main
+    - html_report.py   = bob.db.cuhk_cufs.scripts.html_report:main
+  number: {{ environ.get('BOB_BUILD_NUMBER', 0) }}
+  run_exports:
+    - {{ pin_subpackage(name) }}
+  script:
+    - cd {{ project_dir }}
+    {% if environ.get('BUILD_EGG') %}
+    - python setup.py sdist --formats=zip
+    {% endif %}
+    - python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  host:
+    - python {{ python }}
+    - setuptools {{ setuptools }}
+    - six {{ six }}
+    - bob.db.base
+    - bob.db.xm2vts
+    - bob.db.arface
+  run:
+    - python
+    - setuptools
+    - six
+
+test:
+  imports:
+    - {{ name }}
+  commands:
+    - evaluate_cufs.py --help
+    - html_report.py --help
+    - nosetests --with-coverage --cover-package={{ name }} -sv {{ name }}
+    - sphinx-build -aEW {{ project_dir }}/doc {{ project_dir }}/sphinx
+    - sphinx-build -aEb doctest {{ project_dir }}/doc sphinx
+    - conda inspect linkages -p $PREFIX {{ name }}  # [not win]
+    - conda inspect objects -p $PREFIX {{ name }}  # [osx]
+  requires:
+    - bob-devel {{ bob_devel }}.*
+    - nose
+    - coverage
+    - sphinx
+    - sphinx_rtd_theme
+
+about:
+  home: https://www.idiap.ch/software/bob/
+  license: BSD License
+  summary: CUHK Face Sketch Database (CUFS)
+  license_family: BSD
