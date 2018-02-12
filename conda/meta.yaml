@@ -28,6 +28,7 @@ requirements:
     - bob.db.base
     - bob.db.xm2vts
     - bob.db.arface
+    - bob.measure
   run:
     - python
     - setuptools
