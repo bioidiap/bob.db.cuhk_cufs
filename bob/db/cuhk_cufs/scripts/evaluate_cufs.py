@@ -14,6 +14,7 @@ It also is able to plot CMC and ROC curves.
 
 
 import bob.measure
+import bob.bio.base
 
 import argparse
 import numpy, math
@@ -289,7 +290,7 @@ def main(command_line_parameters=None):
  
   ################ PLOTING CMC ##############
   logger.info("Loading CMC data on the development ")
-  cmc_parser = {'4column' : bob.measure.load.cmc_four_column, '5column' : bob.measure.load.cmc_five_column}[args.parser]
+  cmc_parser = {'4column' : bob.bio.base.score.load.cmc_four_column, '5column': bob.bio.base.score.load.cmc_five_column}[args.parser]
   cmcs_dev = [cmc_parser(f) for f in args.dev_files]
   logger.info("Plotting CMC curves")
   try:
@@ -306,7 +307,8 @@ def main(command_line_parameters=None):
  
   ################ PLOTING CMC ##############
   if args.roc or args.det:
-    score_parser = {'4column' : bob.measure.load.split_four_column, '5column' : bob.measure.load.split_five_column}[args.parser]
+    score_parser = {'4column' : bob.bio.base.score.load.split_four_column,
+                    '5column' : bob.bio.base.score.load.split_five_column}[args.parser]
 
     # First, read the score files
     logger.info("Loading %d score files of the development set", len(args.dev_files))
