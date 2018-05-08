@@ -7,8 +7,6 @@ package:
 
 build:
   entry_points:
-    - evaluate_cufs.py = bob.db.cuhk_cufs.scripts.evaluate_cufs:main
-    - html_report.py   = bob.db.cuhk_cufs.scripts.html_report:main
   number: {{ environ.get('BOB_BUILD_NUMBER', 0) }}
   run_exports:
     - {{ pin_subpackage(name) }}
@@ -38,8 +36,6 @@ test:
   imports:
     - {{ name }}
   commands:
-    - evaluate_cufs.py --help
-    - html_report.py --help
     - nosetests --with-coverage --cover-package={{ name }} -sv {{ name }}
     - sphinx-build -aEW {{ project_dir }}/doc {{ project_dir }}/sphinx
     - sphinx-build -aEb doctest {{ project_dir }}/doc sphinx

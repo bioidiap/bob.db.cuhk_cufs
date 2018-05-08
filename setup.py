@@ -57,8 +57,6 @@ setup(
 
       # scripts should be declared using this entry:
       'console_scripts' : [
-        'evaluate_cufs.py = bob.db.cuhk_cufs.scripts.evaluate_cufs:main',
-        'html_report.py   = bob.db.cuhk_cufs.scripts.html_report:main',
       ],      
       
     },
