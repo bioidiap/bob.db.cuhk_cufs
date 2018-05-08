@@ -25,7 +25,7 @@ This script will print a list of miss classification per identity
 
 import bob.io.base
 import bob.io.image
-import bob.measure
+import bob.bio.base
 
 import argparse
 import numpy, math
@@ -83,7 +83,7 @@ def get_scores_from_client(score_file, client_id):
   output['genuine'] = []
   output['impostor']  =  []
 
-  for client, probe, file_name, score in bob.measure.load.four_column(score_file):
+  for client, probe, file_name, score in bob.bio.base.score.load.four_column(score_file):
     
     if(int(client)==int(client_id)):
 
@@ -164,7 +164,9 @@ def main(command_line_parameters=None):
   html += "th { padding-top: 11px; padding-bottom: 11px; background-color: #4CAF50; color: white; text-align: center}"
   html +="</style>\n"
 
-  html += " <p>Score file {0} </br> Protocol: {1} </br> Recognition rate: <b>{2}</b> </p>".format(args.score_file, args.protocol ,bob.measure.recognition_rate(bob.measure.load.cmc_four_column(args.score_file)))
+  html += " <p>Score file {0} </br> Protocol: {1} </br> Recognition rate:
+      <b>{2}</b> </p>".format(args.score_file, args.protocol
+      ,bob.measure.recognition_rate(bob.bio.base.score.load.cmc_four_column(args.score_file)))
   html += " <table border='0'>\n"
   i = 1
   for c in clients:
