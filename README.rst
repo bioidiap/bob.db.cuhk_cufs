@@ -1,14 +1,14 @@
 .. vim: set fileencoding=utf-8 :
 .. Wed 17 Aug 16:25:52 CEST 2016
 
-.. image:: http://img.shields.io/badge/docs-stable-yellow.svg
-   :target: https://www.idiap.ch/software/bob/docs/bob/bob.db.cuhk_cufs/stable/index.html
+.. image:: http://img.shields.io/badge/docs-v2.2.4-yellow.svg
+   :target: https://www.idiap.ch/software/bob/docs/bob/bob.db.cuhk_cufs/v2.2.4/index.html
 .. image:: http://img.shields.io/badge/docs-latest-orange.svg
    :target: https://www.idiap.ch/software/bob/docs/bob/bob.db.cuhk_cufs/master/index.html
-.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/build.svg
-   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/master
-.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/master/coverage.svg
-   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/master
+.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/v2.2.4/build.svg
+   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/v2.2.4
+.. image:: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/badges/v2.2.4/coverage.svg
+   :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs/commits/v2.2.4
 .. image:: https://img.shields.io/badge/gitlab-project-0000c0.svg
    :target: https://gitlab.idiap.ch/bob/bob.db.cuhk_cufs
 .. image:: http://img.shields.io/pypi/v/bob.db.cuhk_cufs.svg
